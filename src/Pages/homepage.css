@@ -48,6 +48,7 @@
           height: 100vh;
           position: fixed;
           z-index: 10;
+          top: 65px;
 }
 
 .cart-bar{
@@ -99,9 +100,17 @@
     border: none;
 }
 
+.prices .add-icon:hover{
+    color: orange;
+}
+
 .card-item img{
     height: 100px;
     width: 100px;
+}
+
+.card{
+    overflow: hidden;
 }
 
 .card-item{
@@ -155,4 +164,8 @@
         width: 90%;
         color: white;
     }
+    /* .Link{
+        margin: 0;
+
+    } */
 }

@@ -1,240 +1,61 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import img1 from "../img/office1.jpg";
 import img2 from "../img/office2.jpg";
 import img3 from "../img/office3.jpg";
 import logo from "../img/wholelitelogo7.png";
+
+import "react-toastify/dist/ReactToastify.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./homepage.css";
 import {
-  faShoppingBag,
-  faArrowCircleUp,
+  // faShoppingBag,
+  // faArrowCircleUp,
+  // faCircleXmark,
+  faCirclePlus,
 } from "@fortawesome/free-solid-svg-icons";
 //import serviceData from "../assets/data/serviceData";
 import products from "../assets/data/products";
+import { Link } from "react-router-dom";
+import Navbar from "../Components/Navbar";
+import { useUserAuth } from "../Components/UserAuthContext";
+import ShoppingCart from "../Components/ShoppingCart";
 
 const Homepage = () => {
-  const [visibility, setVisibility] = useState(false);
-  const [cart, setCart] = useState([]);
-  const AddToCart = (item) => {
-    setCart([...cart, item]);
-  };
-  const removeFromCart = (item) => {
-    let hardCopy = [...cart];
-    hardCopy = hardCopy.filter((cartItem) => cartItem.id !== item.id);
-    setCart(hardCopy);
-  };
-  const handleCart = () => {
-    setVisibility(true);
-  };
-  const handleClose = () => {
-    setVisibility(false);
-  };
+  // const [visibility, setVisibility] = useState(false);
 
-  const ShoppingCart = () => {
-    useEffect(() => {
-      total();
-    }, [cart]);
-    const [cartTotal, setcartTotal] = useState(0);
-    const total = () => {
-      let totalVal = 0;
-      for (let i = 0; i < cart.length; i++) {
-        totalVal += cart[i].price;
-      }
-      setcartTotal(totalVal);
-      console.log(cart);
-    };
-    return (
-      <div className="modals">
-        <div
-          className="cart-bar bg-white"
-          style={{ overflowY: "scroll", zIndex: 115 }}
-        >
-          <div className="cart-top d-flex justify-content-between px-3 mt-3">
-            <p className="fw-bold text-dark">Cart Items</p>
-            <faArrowCircleUp color={"black"} size={5} />
-            <FontAwesomeIcon
-              icon={faArrowCircleUp}
-              onClick={handleClose}
-              style={{ color: "black" }}
-            />
-          </div>
-          <div className="cart-item-container px-3">
-            <div className="product">
-              {cart.map((item, index) => {
-                return (
-                  <div
-                    className="item d-flex text-dark bg-white mt-3"
-                    key={index}
-                  >
-                    <div
-                      className="img  d-flex align-items-center justify-content-center"
-                      style={{
-                        height: 50,
-                        width: 80,
-                      }}
-                    >
-                      <img
-                        src={item.imgUrl}
-                        alt={item.productName}
-                        style={{
-                          height: 50,
-                        }}
-                      />
-                    </div>
-                    <div
-                      className="desc ms-3"
-                      style={{ lineHeight: 0.9, fontSize: 13 }}
-                    >
-                      <p>{item.productName}</p>
-                      <div className="price d-flex justify-content-between align-items-center ">
-                        <p className="my-auto">${item.price}</p>
-                        <div className="adder d-flex">
-                          <div className="add border border-dark border-2 d-flex justify-content-center align-items-center">
-                            -
-                          </div>
-                          <div className="add bg-dark border border-dark border-2 d-flex justify-content-center align-items-center"></div>
-                          <div className="add border border-dark border-2 d-flex justify-content-center align-items-center">
-                            +
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="remove">
-                      <FontAwesomeIcon
-                        className="my-auto"
-                        icon={faArrowCircleUp}
-                        onClick={() => removeFromCart(item)}
-                        style={{ color: "black" }}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-              <div className="px-3 bg-warning py-3">
-                <p>{cartTotal}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
+  const { visibility } = useUserAuth();
+  // const [visibility, setVisibility] = useState(false);
+  // const Notify = () => toast("Item Successfully Added!");
+
+  // {cart} = useUserContainer()
+
+  const { AddToCart } = useUserAuth();
+  // const [cart, setCart] = useState([]);
+  // const AddToCart = (item) => {
+  //   setCart([...cart, item]);
+  //   toast.success("Product Added Succesfully");
+  // };
 
   return (
     <div className="Homepage">
       {visibility && <ShoppingCart />}
-      <section className="nav-section">
-        <nav className="navbar navbar-expand-lg bg-light">
-          <div className="container">
-            <a className="logo navbar-brand" href="/#">
-              <img src={logo} alt="Wholight Trading Logo" />
-            </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <div className="me-auto"></div>
-              <div className="ge me-auto">
-                <ul className="navbar-nav mb-2 mb-lg-0">
-                  <li className="nav-item">
-                    <a
-                      className="nav-link active"
-                      aria-current="page"
-                      href="/#"
-                    >
-                      Home
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="/#">
-                      Link
-                    </a>
-                  </li>
-                  <li className="nav-item dropdown">
-                    <a
-                      className="nav-link dropdown-toggle"
-                      href="/#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Dropdown
-                    </a>
-
-                    <ul className="dropdown-menu">
-                      <li>
-                        <a className="dropdown-item" href="/#">
-                          Action
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="/#">
-                          Another action
-                        </a>
-                      </li>
-                      <li>
-                        <hr className="dropdown-divider" />
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="/#">
-                          Something else here
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link disabled" href="/#">
-                      Disabled
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <form className="d-flex" role="search">
-                <input
-                  className="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button className="btn btn-outline-success" type="submit">
-                  Search
-                </button>
-              </form>
-              <div className="acc-cart position-relative ms-3">
-                <span className="badge bg-secondary rounded-circle">
-                  {cart.length}
-                </span>
-                <i className="fa-regular "></i>
-                <FontAwesomeIcon icon={faShoppingBag} onClick={handleCart} />
-                <span className="ms-1">Account</span>
-              </div>
-            </div>
-          </div>
-        </nav>
+      <section className="nav-section sticky-top">
+        <Navbar />
       </section>
       <section className="carousel">
         <div
           id="carouselExampleAutoplaying"
-          class="carousel slide"
+          className="carousel slide"
           data-bs-ride="carousel"
         >
-          <div class="carousel-indicators">
+          <div className="carousel-indicators">
             <button
               type="button"
               data-bs-target="#carouselExampleAutoplaying"
               data-bs-slide-to="0"
-              class="active"
+              className="active"
               aria-current="true"
               aria-label="Slide 1"
             ></button>
@@ -251,28 +72,28 @@ const Homepage = () => {
               aria-label="Slide 3"
             ></button>
           </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src={img1} class="d-block w-100" alt="..." />
-              <div class="carousel-caption d-none d-md-block">
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img src={img1} className="d-block w-100" alt="..." />
+              <div className="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>
                   Some representative placeholder content for the first slide.
                 </p>
               </div>
             </div>
-            <div class="carousel-item">
-              <img src={img2} class="d-block w-100" alt="..." />
-              <div class="carousel-caption d-none d-md-block">
+            <div className="carousel-item">
+              <img src={img2} className="d-block w-100" alt="..." />
+              <div className="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>
                   Some representative placeholder content for the second slide.
                 </p>
               </div>
             </div>
-            <div class="carousel-item">
-              <img src={img3} class="d-block w-100" alt="..." />
-              <div class="carousel-caption d-none d-md-block">
+            <div className="carousel-item">
+              <img src={img3} className="d-block w-100" alt="..." />
+              <div className="carousel-caption d-none d-md-block">
                 <h5>Third slide label</h5>
                 <p>
                   Some representative placeholder content for the third slide.
@@ -281,46 +102,58 @@ const Homepage = () => {
             </div>
           </div>
           <button
-            class="carousel-control-prev"
+            className="carousel-control-prev"
             type="button"
             data-bs-target="#carouselExampleAutoplaying"
             data-bs-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Previous</span>
           </button>
           <button
-            class="carousel-control-next"
+            className="carousel-control-next"
             type="button"
             data-bs-target="#carouselExampleAutoplaying"
             data-bs-slide="next"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Next</span>
           </button>
         </div>
       </section>
       <section className="products py-2">
         <div className="card">
-          <div className="row w-100 mx-auto">
+          <div className="row px-3 w-100">
             {products.map((item) => {
               return (
-                <div key={item.id} className="card-item col-md-2 bg-white">
-                  <div className="card-image d-flex align-items-center justify-content-center">
-                    <i className="fa fa-heart"></i>
-                    <img src={item.imgUrl} alt={item.productName} />
-                  </div>
-                  <p>{item.productName}</p>
-                  <p>{item.category}</p>
+                <div key={item.id} className="card-item  col-md-3 bg-white">
+                  <Link className="Link" to={`/productDetail/${item.id}`}>
+                    <div className="card-image d-flex align-items-center justify-content-center">
+                      <i className="fa fa-heart"></i>
+
+                      <img src={item.imgUrl} alt={item.productName} />
+                    </div>
+                    <p>{item.productName}</p>
+                    <p>{item.category}</p>
+                  </Link>
                   <div className="prices d-flex justify-content-between">
                     <p>{`$${item.price}`}</p>
-                    <i
-                      className="fa fa-plus"
+                    <FontAwesomeIcon
+                      className="add-icon"
+                      icon={faCirclePlus}
                       onClick={() => {
                         AddToCart(item);
+                        // (e) => Notify();
                       }}
-                    ></i>
+                    />
                   </div>
+                  {/* <ToastContainer /> */}
                 </div>
               );
             })}
