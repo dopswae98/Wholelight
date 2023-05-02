@@ -1,7 +1,9 @@
 import React from "react";
 import img1 from "../img/office1.jpg";
 import img2 from "../img/office2.jpg";
-import img3 from "../img/office3.jpg";
+// import img3 from "../img/office3.jpg";
+import img4 from "../img/laptop1.jpg";
+import img5 from "../img/irrigation1.jpg";
 
 const Carousell = () => {
   return (
@@ -31,6 +33,12 @@ const Carousell = () => {
           data-bs-slide-to="2"
           aria-label="Slide 3"
         ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
@@ -52,7 +60,16 @@ const Carousell = () => {
           </div>
         </div>
         <div className="carousel-item">
-          <img src={img3} className="d-block w-100" alt="..." />
+          <img src={img4} className="d-block w-100" alt="..." />
+          <div className="carousel-caption d-none d-md-block pb-5">
+            <h1 className="h1 fw-bold">
+              Get Quality Stationaty For Your Office
+            </h1>
+            <p>We supply you with the best stationary at affordable prices.</p>
+          </div>
+        </div>
+        <div className="carousel-item">
+          <img src={img5} className="d-block w-100" alt="..." />
           <div className="carousel-caption d-none d-md-block pb-5">
             <h1 className="h1 fw-bold">
               Get Quality Stationaty For Your Office
