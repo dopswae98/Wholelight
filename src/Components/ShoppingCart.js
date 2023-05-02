@@ -2,8 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useUserAuth } from "./UserAuthContext";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import products from "../assets/data/products";
 
 const ShoppingCart = () => {
+  // const handleSub = (Specificitem) => {
+    // const existingItem = cart.find((item) => item.id == Specificitem.id);
+    // if (existingItem){
+    //   cart
+    // }
+  // };
   const { cart, handleClose, removeFromCart } = useUserAuth();
   useEffect(() => {
     total();
@@ -28,6 +35,7 @@ const ShoppingCart = () => {
           <p className="fw-bold text-dark">Cart Items</p>
           {/* <faArrowCircleUp color={"black"} size={5} /> */}
           <FontAwesomeIcon
+          className="text-danger"
             icon={faCircleXmark}
             onClick={handleClose}
             style={{ color: "black" }}
@@ -64,11 +72,24 @@ const ShoppingCart = () => {
                     <div className="price d-flex justify-content-between align-items-center ">
                       <p className="my-auto">${item.price}</p>
                       <div className="adder d-flex">
-                        <div className="add border border-dark border-2 d-flex justify-content-center align-items-center">
+                        <div
+                          className="add 
+                        border border-dark border-2 d-flex 
+                        justify-content-center 
+                        align-items-center"
+                          // onClick={handleSub(item)}
+                        >
                           -
                         </div>
                         <div className="add bg-dark border border-dark border-2 d-flex justify-content-center align-items-center"></div>
-                        <div className="add border border-dark border-2 d-flex justify-content-center align-items-center">
+                        <div
+                          className="add 
+                        border border-dark 
+                        border-2 d-flex 
+                        justify-content-center 
+                        align-items-center"
+                          // onClick={handleAdd}
+                        >
                           +
                         </div>
                       </div>
@@ -76,6 +97,7 @@ const ShoppingCart = () => {
                   </div>
                   <div className="remove">
                     <FontAwesomeIcon
+                    className="text-danger"
                       icon={faCircleXmark}
                       color="black"
                       onClick={() => removeFromCart(item)}
@@ -84,10 +106,13 @@ const ShoppingCart = () => {
                 </div>
               );
             })}
-            <div className="px-3 bg-warning d-flex justify-content-between align-items-center pt-3 mt-3">
+            <div className="px-3 bg-light d-flex justify-content-between align-items-center pt-3 mt-3">
               <p className="fw-bold text-dark">Order Total</p>
               <p className="fw-bold text-dark">${cartTotal}</p>
             </div>
+            <button className={cart.length === 0 ? 'btn btn-secondary p-3 mt-2 w-100 disabled' : 'btn request-quote btn-warning p-3 mt-2 w-100'}>
+              <h5 className="fw-bold text-dark my-auto disabled">Request a Quote</h5>
+            </button>
           </div>
         </div>
       </div>

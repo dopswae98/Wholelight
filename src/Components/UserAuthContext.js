@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
+import products from "../assets/data/products";
 
 const userAuthContext = createContext();
 // const UserContainerContext = () => {
@@ -11,6 +12,9 @@ const userAuthContext = createContext();
 export function UserAuthContextProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [visibility, setVisibility] = useState(false);
+  const [query, setQuery] = useState("");
+  const [productsData, setProductsData] = useState([...products]);
+
   function AddToCart(item) {
     setCart([...cart, item]);
     toast.success("Product Added Succesfully");
@@ -35,6 +39,11 @@ export function UserAuthContextProvider({ children }) {
         setVisibility,
         handleClose,
         removeFromCart,
+        query,
+        setQuery,
+        productsData,
+        setProductsData,
+        products,
       }}
     >
       {children}

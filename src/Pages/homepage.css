@@ -23,9 +23,46 @@
     height: 100vh;
 }
 
+form .search{
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+}
+
+form .text-input:focus{
+    outline: 0px !important;
+    border: 0;
+    box-shadow: inset 0 -1px 0 #ddd;
+    
+}
+
+textarea:focus, 
+textarea.form-control:focus, 
+input.form-control:focus, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=number]:focus, 
+[type=text].form-control:focus, 
+[type=password].form-control:focus, 
+[type=email].form-control:focus, 
+[type=tel].form-control:focus, 
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 -1px 0 #faf9f9;
+}
+
+Link{
+    text-decoration: none;
+    color: black;
+}
+
 .navbar-brand img{
     height: 40px;
     width: 40px;
+}
+
+.acc-cart-center{
+    display: none;
 }
 
 /* modal */
@@ -100,6 +137,13 @@
     border: none;
 }
 
+.add-icon{
+    height: 30px;
+}
+.add-icon:hover{
+    cursor: pointer;
+}
+
 .prices .add-icon:hover{
     color: orange;
 }
@@ -155,6 +199,10 @@
     border-radius: 50px;
 }
 
+.request-quote{
+    margin-bottom: 130px;
+}
+
 @media screen and (max-width:400px) {
     .cart-bar{
         position: absolute;
@@ -163,9 +211,73 @@
         background-color: black;
         width: 90%;
         color: white;
+        overflow-y: scroll;
+        z-index: 100;
     }
     /* .Link{
         margin: 0;
 
     } */
+    .acc-cart-center{
+        display: block;
+    }
+    input[type=email]{
+       width: 260px; 
+    }
+    #carouselExampleAutoplaying .carousel-item img{
+        object-fit: cover;
+        object-position: center;
+        height: 25vh;
+        overflow: hidden;
+    }
+    
+    #carouselExampleAutoplaying .carousel-item::before{
+        content: '';
+        background-image: 
+        linear-gradient(
+            to bottom,
+            transparent, rgba(0,0,0,0.8)
+        );
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 50vw;
+        height: 100vh;
+    }
+    
+}
+
+/* footer */
+p a{
+    text-decoration: none;
+    color: black;
+}
+p a:hover{
+    color: orange;
+}
+
+.social .icon{
+    transition: 0.4s;
+}
+
+.fa-facebook{
+    color: rgb(7, 7, 161);
+}
+.fa-whatsapp{
+    color: rgb(7, 137, 16);
+}
+.fa-instagram{
+    color: palevioletred;
+}
+.fa-twitter{
+    color: rgb(23, 146, 146);
+}
+
+.social .icon:hover{
+    background-color: orange !important;
+    transform: scale(1.2);
+}
+
+.footer{
+	background-color:#79715d;
 }

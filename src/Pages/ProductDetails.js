@@ -31,8 +31,8 @@ const ProductDetails = () => {
       <section className="nav-section sticky-top">
         <Navbar />
       </section>
-      <div className="pt-5 d-flex flex-wrap flex-md-nowrap container align-items-center justif-content-center">
-        <div className="image pt-5 ">
+      <div className="pt-3 d-flex flex-wrap flex-md-nowrap container align-items-center justif-content-center">
+        <div className="image pt-0 ">
           <img
             src={imgUrl}
             alt={productName}
@@ -63,7 +63,11 @@ const ProductDetails = () => {
             {AlsoProducts.map((item) => {
               return (
                 <div key={item.id} className="card-item  col-md-3 bg-white">
-                  <Link className="Link" to={`/productDetail/${item.id}`}>
+                  <Link
+                    className="Link"
+                    to={`/productDetail/${item.id}`}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
                     <div className="card-image d-flex align-items-center justify-content-center">
                       <i className="fa fa-heart"></i>
 

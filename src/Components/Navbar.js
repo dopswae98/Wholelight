@@ -1,23 +1,53 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingBag, faSearch } from "@fortawesome/free-solid-svg-icons";
 import logo from "../img/wholelitelogo7.png";
 import { useUserAuth } from "./UserAuthContext";
+import { Link } from "react-router-dom";
+import products from "../assets/data/products";
 
 const Navbar = () => {
-  const { cart, setVisibility } = useUserAuth();
+  const {
+    cart,
+    setVisibility,
+    query,
+    setQuery,
+    visibility,
+    // productsData,
+    setProductsData,
+  } = useUserAuth();
   const handleCart = () => {
-    setVisibility("true");
+    setVisibility(!visibility);
     // console.log(visibility);
+  };
+
+  const handleSearch = (e) => {
+    setQuery(e.target.value);
+    const searchedProducts = products.filter((item) =>
+      item.productName.toLowerCase().includes(query.toLowerCase())
+    );
+    setProductsData(searchedProducts);
   };
 
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container">
-          <a className="logo navbar-brand" href="/#">
+          <Link className="logo navbar-brand" to="/">
+            {/* <a className="logo navbar-brand" href="/#"> */}
             <img src={logo} alt="Wholight Trading Logo" />
-          </a>
+            {/* </a> */}
+          </Link>
+          <div className="acc-cart-center position-relative ms-3">
+            <span className="badge bg-secondary rounded-circle">
+              {cart.length}
+            </span>
+            <i className="fa-regular "></i>
+            <FontAwesomeIcon icon={faShoppingBag} onClick={handleCart} />
+            <span className="ms-2 fw-bold">
+              My <span className="text-warning">Cart</span>{" "}
+            </span>
+          </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -29,6 +59,7 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <div className="me-auto"></div>
             <div className="ge me-auto">
@@ -39,30 +70,35 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/#">
-                    Link
+                  <a className="nav-link active" href="/#">
+                    About
                   </a>
                 </li>
                 <li className="nav-item dropdown">
                   <a
-                    className="nav-link dropdown-toggle"
+                    className="nav-link active dropdown-toggle"
                     href="/#"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Dropdown
+                    Category
                   </a>
 
                   <ul className="dropdown-menu">
                     <li>
                       <a className="dropdown-item" href="/#">
-                        Action
+                        Boreholes
                       </a>
                     </li>
                     <li>
                       <a className="dropdown-item" href="/#">
-                        Another action
+                        Construction
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="/#">
+                        Stationary
                       </a>
                     </li>
                     <li>
@@ -70,36 +106,49 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a className="dropdown-item" href="/#">
-                        Something else here
+                        Custom Products
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link disabled" href="/#">
-                    Disabled
+                  <a className="nav-link active" href="/#">
+                    Contact Us
                   </a>
                 </li>
               </ul>
             </div>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+            <div className="bg-white  rounded-pill">
+              <form
+                className="d-flex border border-0 border-2 border-top-0 border-start-0 border-end-0 mx-0"
+                role="search"
+              >
+                <input
+                  className="search-input form-control me-2 bg-transparent border-0 outline-none"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                  onChange={handleSearch}
+                />
+                <button
+                  className="search btn btn-outline-warning"
+                  type="submit"
+                >
+                  <FontAwesomeIcon
+                    icon={faSearch}
+                    color="black"
+                    onClick={handleCart}
+                  />
+                </button>
+              </form>
+            </div>
             <div className="acc-cart position-relative ms-3">
               <span className="badge bg-secondary rounded-circle">
                 {cart.length}
               </span>
               <i className="fa-regular "></i>
               <FontAwesomeIcon icon={faShoppingBag} onClick={handleCart} />
-              <span className="ms-1">Account</span>
+              <span className="ms-1"></span>
             </div>
           </div>
         </div>
