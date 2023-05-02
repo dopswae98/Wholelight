@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useUserAuth } from "./UserAuthContext";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,25 +6,35 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ShoppingCart = () => {
   // const handleSub = (Specificitem) => {
-    // const existingItem = cart.find((item) => item.id == Specificitem.id);
-    // if (existingItem){
-    //   cart
-    // }
+  // const existingItem = cart.find((item) => item.id == Specificitem.id);
+  // if (existingItem){
+  //   cart
+  // }
   // };
-  const { cart, handleClose, removeFromCart } = useUserAuth();
-  useEffect(() => {
-    total();
-    // eslint-disable-next-line
-  }, [cart]);
-  const [cartTotal, setcartTotal] = useState(0);
-  const total = () => {
-    let totalVal = 0;
-    for (let i = 0; i < cart.length; i++) {
-      totalVal += cart[i].price;
-    }
-    setcartTotal(totalVal);
-    console.log(cart);
-  };
+  const { cart, handleClose, removeFromCart, AddToCart, removeItemFromCart } =
+    useUserAuth();
+  // useEffect(() => {
+  //   total();
+  //   // eslint-disable-next-line
+  // }, [cart]);
+  // const [cartTotal, setcartTotal] = useState(0);
+  const cartTotal = cart.reduce((a, c) => a + c.price * c.qty, 0);
+  // const total = () => {
+  //   let totalVal = 0;
+  //   for (let i = 0; i < cart.length; i++) {
+  //     totalVal += cart[i].price;
+  //   }
+  //   setcartTotal(totalVal);
+  //   // console.log(cart);
+  // };
+  // const total = () => {
+  //   let totalVal = 0;
+  //   for (let i = 0; i < cart.length; i++) {
+  //     totalVal += cart[i].price;
+  //   }
+  //   setcartTotal(totalVal);
+  //   // console.log(cart);
+  // };
   return (
     <div className="modals">
       <div
@@ -35,7 +45,7 @@ const ShoppingCart = () => {
           <p className="fw-bold text-dark">Cart Items</p>
           {/* <faArrowCircleUp color={"black"} size={5} /> */}
           <FontAwesomeIcon
-          className="text-danger"
+            className="text-danger"
             icon={faCircleXmark}
             onClick={handleClose}
             style={{ color: "black" }}
@@ -79,9 +89,16 @@ const ShoppingCart = () => {
                         align-items-center"
                           // onClick={handleSub(item)}
                         >
-                          -
+                          <button
+                            className="btn btn-white"
+                            onClick={() => removeFromCart(item)}
+                          >
+                            -
+                          </button>
                         </div>
-                        <div className="add bg-dark border border-dark border-2 d-flex justify-content-center align-items-center"></div>
+                        <div className="add bg-dark text-white border border-dark border-2 d-flex justify-content-center align-items-center">
+                          {item.qty}
+                        </div>
                         <div
                           className="add 
                         border border-dark 
@@ -90,17 +107,22 @@ const ShoppingCart = () => {
                         align-items-center"
                           // onClick={handleAdd}
                         >
-                          +
+                          <button
+                            className="btn btn-white"
+                            onClick={() => AddToCart(item)}
+                          >
+                            +
+                          </button>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="remove">
                     <FontAwesomeIcon
-                    className="text-danger"
+                      className="text-danger"
                       icon={faCircleXmark}
                       color="black"
-                      onClick={() => removeFromCart(item)}
+                      onClick={() => removeItemFromCart(item)}
                     />
                   </div>
                 </div>
@@ -110,8 +132,16 @@ const ShoppingCart = () => {
               <p className="fw-bold text-dark">Order Total</p>
               <p className="fw-bold text-dark">${cartTotal}</p>
             </div>
-            <button className={cart.length === 0 ? 'btn btn-secondary p-3 mt-2 w-100 disabled' : 'btn request-quote btn-warning p-3 mt-2 w-100'}>
-              <h5 className="fw-bold text-dark my-auto disabled">Request a Quote</h5>
+            <button
+              className={
+                cart.length === 0
+                  ? "btn btn-secondary p-3 mt-2 w-100 disabled"
+                  : "btn request-quote btn-warning p-3 mt-2 w-100"
+              }
+            >
+              <h5 className="fw-bold text-dark my-auto disabled">
+                Request a Quote
+              </h5>
             </button>
           </div>
         </div>

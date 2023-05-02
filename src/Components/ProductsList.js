@@ -31,7 +31,7 @@ const ProductsList = ({ productsData }) => {
                 <p>{item.category}</p>
               </Link>
               <div className="prices d-flex justify-content-between">
-                <p>{`$${item.price}`}</p>
+                <p className="fw-bolder fs-5">{`$${item.price}`}</p>
                 <FontAwesomeIcon
                   className="add-icon"
                   icon={faCirclePlus}

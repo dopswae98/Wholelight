@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import logo from "../img/wholelitelogo7.png";
 import { toast } from "react-toastify";
@@ -19,6 +19,7 @@ import ProductsList from "../Components/ProductsList";
 
 const Homepage = () => {
   // const [visibility, setVisibility] = useState(false);
+  const [setEmail] = useState(""); //add the clear email box functionality !!!
 
   const { visibility } = useUserAuth();
   // const [visibility, setVisibility] = useState(false);
@@ -27,6 +28,7 @@ const Homepage = () => {
   // {cart} = useUserContainer()
 
   const { query, productsData } = useUserAuth();
+
   // const [cart, setCart] = useState([]);
   // const AddToCart = (item) => {
   //   setCart([...cart, item]);
@@ -53,6 +55,10 @@ const Homepage = () => {
     // if (window.Email) {
     //   window.Email.send(config);
     // }
+    const test = true;
+    if (test) {
+      console.log(form.current);
+    }
 
     emailjs
       .sendForm(
@@ -65,6 +71,7 @@ const Homepage = () => {
         toast.success("Your Added Succesfully to Our list");
       })
       .then((err) => console.log(err));
+    setEmail("");
   };
 
   return (
@@ -123,12 +130,15 @@ const Homepage = () => {
               <p>Enter your email to unlock 10% OFF.</p>
               <form
                 ref={form}
+                // onChange={setEmail((e) => e.target.value)}
                 onSubmit={handleSubscribe}
                 className="email border border-top-0 border-start-0 border-end-0 d-flex align-items-center justify-content-between"
               >
                 <input
                   name="email"
                   type="email"
+                  // value={email}
+                  // onChange={setEmail((e) => e.target.value)}
                   placeholder="Your Email"
                   className="email-text bg-transparent text-white border-0 mb-1"
                 />
