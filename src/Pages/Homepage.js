@@ -1,6 +1,7 @@
-import React from "react";
-
+import React, { useRef } from "react";
+import emailjs from "emailjs-com";
 import logo from "../img/wholelitelogo7.png";
+import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -32,24 +33,38 @@ const Homepage = () => {
   //   toast.success("Product Added Succesfully");
   // };
 
-  const config = {
-    // Email.send({
-    Host: "smtp.gmail.com",
-    Username: "douggens@gmail.com",
-    Password: "ajspnbqnviakmywq",
-    To: "douggens@gmail.com",
-    From: "douggens@gmail.com",
-    Subject: "<email subject>",
-    Body: "<email body>",
-    // }).then(
-    //   message => alert("mail sent successfully")
-  };
+  // const config = {
+  //   // Email.send({
+  //   Host: "smtp.elasticemail.com",
+  //   Port: 2525,
+  //   Username: "douggens@gmail.com",
+  //   Password: "EFF99A999C079FAD43EFAD08B97343038AC0",
+  //   To: "douggens@gmail.com",
+  //   From: "douggens@gmail.com",
+  //   Subject: "<email subject>",
+  //   Body: "<email body>",
+  // }).then(
+  //   message => alert("mail sent successfully")
+  // };
+  const form = useRef();
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    // console.log("clicked");
+    // if (window.Email) {
+    //   window.Email.send(config);
+    // }
 
-  const handleSubscribe = () => {
-    console.log("clicked");
-    if (window.Email) {
-      window.Email.send(config);
-    }
+    emailjs
+      .sendForm(
+        "service_ypheqjj",
+        "template_9ktwqjq",
+        form.current,
+        "8De3Ia49CcY8TSrVA"
+      )
+      .then((res) => {
+        toast.success("Your Added Succesfully to Our list");
+      })
+      .then((err) => console.log(err));
   };
 
   return (
@@ -106,16 +121,27 @@ const Homepage = () => {
             <div className="col-md-3">
               <h5>Lets stay together</h5>
               <p>Enter your email to unlock 10% OFF.</p>
-              <div className="email border border-top-0 border-start-0 border-end-0 d-flex align-items-center justify-content-between">
+              <form
+                ref={form}
+                onSubmit={handleSubscribe}
+                className="email border border-top-0 border-start-0 border-end-0 d-flex align-items-center justify-content-between"
+              >
                 <input
+                  name="email"
                   type="email"
                   placeholder="Your Email"
                   className="email-text bg-transparent text-white border-0 mb-1"
                 />
-                <h6 className="fw-bold" onClick={handleSubscribe}>
+
+                <button
+                  type="submit"
+                  className="btn bg-transparent border-none fw-bold"
+                  onClick={handleSubscribe}
+                >
                   Submit
-                </h6>
-              </div>
+                </button>
+              </form>
+
               <div className="follow-us pt-3 pb-1">
                 <h5>Follow Us</h5>
                 <div className="social d-flex justify-content-between">
