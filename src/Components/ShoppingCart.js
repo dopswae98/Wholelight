@@ -2,6 +2,7 @@ import React from "react";
 import { useUserAuth } from "./UserAuthContext";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import RequestQuote from "../Pages/RequestQuote";
 // import products from "../assets/data/products";
 
 const ShoppingCart = () => {
@@ -11,8 +12,15 @@ const ShoppingCart = () => {
   //   cart
   // }
   // };
-  const { cart, handleClose, removeFromCart, AddToCart, removeItemFromCart } =
-    useUserAuth();
+  const {
+    cart,
+    handleClose,
+    removeFromCart,
+    AddToCart,
+    removeItemFromCart,
+    rfqVisible,
+    setRfqVisible,
+  } = useUserAuth();
   // useEffect(() => {
   //   total();
   //   // eslint-disable-next-line
@@ -35,11 +43,17 @@ const ShoppingCart = () => {
   //   setcartTotal(totalVal);
   //   // console.log(cart);
   // };
+  const handleRequestQuote = (e) => {
+    e.preventDefault();
+    setRfqVisible(true);
+  };
+
   return (
     <div className="modals">
+      {rfqVisible && <RequestQuote />}
       <div
-        className="cart-bar bg-white"
-        style={{ overflowY: "scroll", zIndex: 115 }}
+        className={cart.length == 0 ? "cart-bar bg-light" : "cart-bar bg-white"}
+        style={{ overflowY: "scroll", zIndex: 10 }}
       >
         <div className="cart-top d-flex justify-content-between px-3 mt-3">
           <p className="fw-bold text-dark">Cart Items</p>
@@ -53,6 +67,11 @@ const ShoppingCart = () => {
         </div>
         <div className="cart-item-container px-3">
           <div className="product">
+            {cart.length == 0 && (
+              <h5 className="fw-bold text-dark mt-2 mb-4">
+                Your cart is empty!
+              </h5>
+            )}
             {cart.map((item, index) => {
               return (
                 <div
@@ -90,7 +109,7 @@ const ShoppingCart = () => {
                           // onClick={handleSub(item)}
                         >
                           <button
-                            className="btn btn-white"
+                            className="btn btn-outline-white border-0"
                             onClick={() => removeFromCart(item)}
                           >
                             -
@@ -108,7 +127,7 @@ const ShoppingCart = () => {
                           // onClick={handleAdd}
                         >
                           <button
-                            className="btn btn-white"
+                            className="btn btn-outline-white border-0"
                             onClick={() => AddToCart(item)}
                           >
                             +
@@ -138,6 +157,7 @@ const ShoppingCart = () => {
                   ? "btn btn-secondary p-3 mt-2 w-100 disabled"
                   : "btn request-quote btn-warning p-3 mt-2 w-100"
               }
+              onClick={handleRequestQuote}
             >
               <h5 className="fw-bold text-dark my-auto disabled">
                 Request a Quote

@@ -13,6 +13,7 @@ export function UserAuthContextProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [visibility, setVisibility] = useState(false);
   const [query, setQuery] = useState("");
+  const [rfqVisible, setRfqVisible] = useState(false);
   const [productsData, setProductsData] = useState([...products]);
 
   // function AddToCart(item) {
@@ -79,6 +80,8 @@ export function UserAuthContextProvider({ children }) {
         setProductsData,
         products,
         removeItemFromCart,
+        rfqVisible,
+        setRfqVisible,
       }}
     >
       {children}

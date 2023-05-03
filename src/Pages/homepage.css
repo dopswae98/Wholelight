@@ -55,7 +55,8 @@ input[type=number]:focus,
 [type=email].form-control:focus, 
 [type=tel].form-control:focus, 
 [contenteditable].form-control:focus {
-  box-shadow: inset 0 -1px 0 #faf9f9;
+  box-shadow: inset 0 0 0 0;
+  /* box-shadow: inset 0 -1px 0 #faf9f9; */
 }
 
 Link{
@@ -88,6 +89,17 @@ Link{
     height: 100%;
     background-color: #f0000055;
     z-index: 10;
+}
+.rfq {
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000c9;
+    z-index: 15;
 }
 
 .modals{
@@ -214,7 +226,35 @@ Link{
     margin-bottom: 130px;
 }
 
-@media screen and (max-width:400px) {
+
+@media screen and (min-width:397px) and (max-width: 951px) {
+    .cart-bar{
+        position: absolute;
+        right:0;
+        height: 100%;
+        background-color: black;
+        width: 80%;
+        color: white;
+        overflow-y: scroll;
+        z-index: 100;
+    }
+
+    .nav-section{
+        width: 100%;
+    }
+    .email-text{
+        width: 180px;
+        border-bottom: 1px solid white !important;
+    }
+    .email{
+        border-bottom: 0px !important;
+    }
+    .email .btn{
+        background: rgb(255, 191, 0) !important;
+    }
+}
+
+@media screen and (max-width:412px) {
     .cart-bar{
         position: absolute;
         right:0;
@@ -233,7 +273,7 @@ Link{
         display: block;
     }
     input[type=email]{
-       width: 260px; 
+       width: 70%; 
     }
     #carouselExampleAutoplaying .carousel-item img{
         object-fit: cover;
@@ -287,6 +327,10 @@ p a:hover{
 .social .icon:hover{
     background-color: orange !important;
     transform: scale(1.2);
+}
+.social .icon{
+    background-color: rgb(248, 238, 42) !important;
+    
 }
 
 .footer{

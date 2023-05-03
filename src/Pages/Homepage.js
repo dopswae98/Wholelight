@@ -83,7 +83,7 @@ const Homepage = () => {
       <section className="carousel">
         {query.length > 0 ? null : <Carousell />}
       </section>
-      <section className="products py-2">
+      <section className="products">
         {productsData.length === 0 ? (
           <div className="my-5 py-3">
             <h1 className="fw-bold text-center">No Products Found!!!</h1>
@@ -128,29 +128,33 @@ const Homepage = () => {
             <div className="col-md-3">
               <h5>Lets stay together</h5>
               <p>Enter your email to unlock 10% OFF.</p>
-              <form
-                ref={form}
-                // onChange={setEmail((e) => e.target.value)}
-                onSubmit={handleSubscribe}
-                className="email border border-top-0 border-start-0 border-end-0 d-flex align-items-center justify-content-between"
-              >
-                <input
-                  name="email"
-                  type="email"
-                  // value={email}
+              <div>
+                <form
+                  ref={form}
                   // onChange={setEmail((e) => e.target.value)}
-                  placeholder="Your Email"
-                  className="email-text bg-transparent text-white border-0 mb-1"
-                />
-
-                <button
-                  type="submit"
-                  className="btn bg-transparent border-none fw-bold"
-                  onClick={handleSubscribe}
+                  onSubmit={handleSubscribe}
+                  className="email border border-top-0 border-start-0 border-end-0 "
                 >
-                  Submit
-                </button>
-              </form>
+                  <div className="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-between">
+                    <input
+                      name="email"
+                      type="email"
+                      // value={email}
+                      // onChange={setEmail((e) => e.target.value)}
+                      placeholder="Your Email"
+                      className="email-text bg-transparent text-white border-0 mb-1"
+                    />
+
+                    <button
+                      type="submit"
+                      className="btn bg-transparent border-none fw-bold"
+                      onClick={handleSubscribe}
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
 
               <div className="follow-us pt-3 pb-1">
                 <h5>Follow Us</h5>
