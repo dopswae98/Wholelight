@@ -36,7 +36,7 @@ form .search{
     border-radius: 20px;
 }
 
-form .text-input:focus{
+form .text-input:focus, email-text:focus{
     outline: 0px !important;
     border: 0;
     box-shadow: inset 0 -1px 0 #ddd;
@@ -215,6 +215,14 @@ Link{
     color: white !important;
     opacity: 1;
     }
+.rfq-form input {
+    color: rgb(228, 226, 226) !important;
+    opacity: 1;
+    }
+.rfq-form input::placeholder {
+    color: rgb(230, 228, 228) !important;
+    opacity: 1;
+    }
 
 .icon{
     height: 38px;
@@ -226,6 +234,9 @@ Link{
     margin-bottom: 130px;
 }
 
+.rfq{
+    padding-top: 40% !important;
+}
 
 @media screen and (min-width:397px) and (max-width: 951px) {
     .cart-bar{

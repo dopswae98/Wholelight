@@ -103,12 +103,11 @@ const Homepage = () => {
                 <h5 className="fw-bold ms-1">Wholelight Trading</h5>
               </div>
               <p>
-                {" "}
                 <a href="+263773072851">+263 773 072 851</a>{" "}
               </p>
               <p>
-                <a href="mailto:wholelighttrading@gmail.com">
-                  wholelighttrading@gmail.com
+                <a href="mailto:wholelighttrading@hotmail.com">
+                  wholelighttrading@hotmail.com
                 </a>
               </p>
               <p>6 Nigel Phillip Eastlea Harare</p>
