@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useUserAuth } from "../Components/UserAuthContext";
 
 const RequestQuote = () => {
   const { setRfqVisible, setVisibility, setCart, cart } = useUserAuth();
-  const handleQuote = () => {
+  const [email, setEmail] = useState("");
+  const handleQuote = (e) => {
+    e.preventDefault();
+    if (email === "") {
+      return;
+    }
     setVisibility(false);
     setRfqVisible(false);
     cart.map((prod) => {
@@ -16,7 +21,7 @@ const RequestQuote = () => {
     <div className="rfq vh-100">
       <div className="quote container d-flex flex-column align-content-center pt-5 text-white">
         <div className="row">
-          <div className=" top-50 col-md-8 mx-auto bg-dark d-flex flex-column py-3">
+          <div className="col-md-8 mx-auto bg-dark d-flex flex-column py-3">
             <form action="" className="email rfq-form">
               <h6 className="fw-bold fs-md-6 fs-6">
                 Enter Your Email Below to receive a qoute
@@ -24,10 +29,15 @@ const RequestQuote = () => {
               <input
                 className="email-text border-primary border-top-0 border-start-0 border-end-0 w-100 w-md-50 bg-transparent"
                 type="email"
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
               />
               <button
-                className="btn w-100 btn-warning mt-3"
+                className={
+                  email
+                    ? "btn w-100 btn-warning mt-3"
+                    : "btn disabled w-100 btn-warning mt-3"
+                }
                 onClick={handleQuote}
               >
                 Submit

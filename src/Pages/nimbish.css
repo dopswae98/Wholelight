@@ -1,0 +1,182 @@
+
+
+
+
+.font1 {
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.font2 {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.btn {
+    background-color: rgb(254, 84, 5);
+}
+.btn:hover {
+    background-color: rgb(0, 0, 34) !important;
+    color:rgb(254, 84, 5) !important;
+}
+.btn1 {
+    width: 180px;
+}
+.btn2 {
+    width: 180px;
+}
+
+.btn1:hover {
+    background-color: rgb(0, 0, 34) !important;
+    color: rgb(254, 84, 5) !important;
+    width: 180px;
+}
+.text1 {
+    color: rgb(254, 84, 5) !important;
+}
+.rev1 {
+    background-color: rgb(132, 0, 97) !important;
+}
+.rev2 {
+    background-color: rgb(21, 196, 149) !important;
+}
+
+.btn2:hover {
+    width: 180px;
+    background-color: rgb(254, 84, 5) !important;
+    color: rgb(0, 0, 34) !important;
+}
+
+.text2{
+    color: rgb(0, 0, 34) !important;
+}
+
+.bg1 {
+    background-color: rgb(254, 84, 5) !important;
+}
+.bg3 {
+    background-color: rgb(231, 126, 77) !important;
+}
+
+.bg2 {
+    background-color: rgb(0, 0, 34);
+}
+.outline1 {
+    background-color: rgb(0, 0, 34);
+    border: 1.5px solid rgb(254, 84, 5);
+}
+
+.shadow {
+    box-shadow: 0.5rem 0.5rem rgb(255, 210, 7), -0.5rem -0.5rem #e5bf00;
+}
+.shadow2 {
+    box-shadow: 0.5rem 0.5rem black, -0.5rem -0.5rem #ccc;
+}
+.shadow1 {
+    box-shadow: 0 8px 8px -4px lightblue;
+}
+.shadow4 {
+    box-shadow: 0 8px 8px -4px rgb(253, 250, 243);
+}
+
+/* nav section */
+.blur-effects{
+    filter: blur(5.3px);
+}
+.blur-effect::after{
+    content: "";
+    background-color: rgba(255,255,255,0.1);
+    filter: blur(5px);
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    height: 60px;
+}
+
+.nav-link{
+    color: rgb(0, 0, 34) ;
+}
+/* SIGN UP */
+
+
+.c {
+    margin-top: 20;
+}
+
+/* mision section */
+.mission-section {
+    background-color: #fffcf6;
+}
+.bg4 {
+    background-color: #fffcf6;
+}
+
+/* FOOTER */
+
+.footer-section{
+    background-color: rgb(0, 0, 34);
+}
+
+.fa-twitter {
+    color: rgb(4, 167, 199);
+}
+
+.twitter {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(2, 2, 130);
+    border-radius: 10px;
+}
+
+.linkedin {
+    color: rgb(0, 119, 255);
+}
+
+.icons div {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(2, 2, 130);
+    border-radius: 10px;
+}
+
+/* responsive */
+
+@media screen and (max-width:412px) {
+    .be1{
+        left: 0px !important;
+    }
+    .be2{
+        left: 6px !important;
+    }
+    .be3{
+        right: 0px !important;
+    }
+    .be4{
+        right: 6px !important;
+    }
+    .circle1{
+        right:130px !important;
+    }
+        
+        .circle2{
+        right:20px !important;
+    }
+        
+        .circle3{
+        right:70px !important;
+    }
+    /* right: -100, height: 400, width: 400, top: -100 */
+    .circle1-big{
+        /* right: 0px !important; */
+        /* height: 100px !important;
+        width: 100px !important; */
+        top: -200px !important;
+        left: 150px !important;
+        z-index: -1;
+    }
+    
+}

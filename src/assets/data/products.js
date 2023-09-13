@@ -46,6 +46,7 @@ const products = [
       },
     ],
     avgRating: 4.5,
+    like: true,
   },
 
   {
@@ -69,6 +70,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    like: false,
   },
 
   {
@@ -92,6 +94,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    like: true,
   },
   {
     id: "26",
@@ -114,6 +117,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    like: true,
   },
   {
     id: "04",
@@ -136,6 +140,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    like: true,
   },
 
   {
@@ -159,6 +164,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    like: false,
   },
 
   {
@@ -182,6 +188,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    like: false,
   },
   {
     id: "07",
@@ -204,6 +211,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    like: false,
   },
 
   {
@@ -227,6 +235,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    like: false,
   },
 
   {
@@ -250,6 +259,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    like: false,
   },
 
   {
@@ -273,6 +283,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    like: false,
   },
 
   {
@@ -296,6 +307,7 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    like: false,
   },
   {
     id: "25",
@@ -318,6 +330,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
+    like: false,
   },
   {
     id: "11",
@@ -340,6 +353,7 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    like: false,
   },
 
   {
@@ -363,6 +377,7 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    like: false,
   },
 
   {
@@ -386,6 +401,7 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    like: false,
   },
 
   {
@@ -409,6 +425,7 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    like: false,
   },
 
   {
@@ -432,6 +449,7 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    like: false,
   },
 
   {
@@ -455,6 +473,7 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    like: false,
   },
 
   {
@@ -478,6 +497,7 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    like: false,
   },
 
   {
@@ -501,6 +521,7 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    like: false,
   },
 
   {
@@ -524,6 +545,7 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    like: false,
   },
 
   {
@@ -547,6 +569,7 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    like: false,
   },
 
   {
@@ -570,6 +593,7 @@ const products = [
       },
     ],
     avgRating: 4.8,
+    like: false,
   },
 ];
 

@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+#Portforlio project - Foundation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The portfolio project is a capstone for the fundation (first 9 months) of the software Engineering studies at [ALX Africa](https://www.alxafrica.com/software-engineering-2022/), a course offered by [Holberton School](https://www.holbertonschool.com/).
 
-## Available Scripts
+##About the project
 
-In the project directory, you can run:
+**Project name and tagline**
+* Name: [Wolelight Trading](wholelight.vercel.app) Ecomerce Website
+* tagline: We get you the best accessoriries? 
 
-### `npm start`
+## Team Members
+* Ephraim Matarutse
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Technologies**
+* HTML5 & JavaScript
+* Linux
+* Git and GitHub
+* React
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Challenge Statement**
 
-### `npm test`
+Creating an ecommerce website for cellphones and accessories can be a challenging task, but it has the potential to significantly improve the customer experience. By providing a platform where customers can access reviews and leave their own feedback, the retailer can build trust and credibility with its users. This, in turn, can lead to increased sales and customer loyalty. Additionally, by allowing customers to create accounts and save their preferences, the website can help to foster a sense of community and personalization, further enhancing the overall shopping experience.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Risks**
+* Technical risk: Security attack on the customer database.
+* Non-technical risk: Insincere reviews.
 
-### `npm run build`
+**Infrastructure**
+* Since this is an individual project, all the work will be done on the master branch.
+* The project will use containers for deployment.
+* Cloud deployment
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Existing Solutions**
+* ebay.com. Edmunds is one of the more popular car review websites, with an average of 16 million unique visitors per month. Edmunds offers in-depth reviews from professional car reviewers as well as everyday drivers
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##Project Breakdown
+Adding user management to the application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Implementing user management using the Django user authentication system.
+2. Settting up continuous integration and delivery
+   
+**Implementing backend services**
 
-### `npm run eject`
+1. Creating cloud functions to manage dealers and reviews
+2. Creating Django models and views to manage car model and car make
+3. Creating Django proxy services and views to integrate dealers, reviews, and cars together
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Add dynamic pages with Django templates**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Creating a page that shows all the accesories available for sale.
+2. Creating a page that shows details for the selected product.
+3. Creating a page that let's the end user checkout and buy online.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+**Additional: Containerization**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Adding deployment artifacts to the application
+2. Deploying the application
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+**Controbutors: [Ephraim Matarutse](https://github.com/dopswae98)**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Wholelight Homepage](wholelightpagefront.png)

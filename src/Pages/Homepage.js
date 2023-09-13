@@ -141,7 +141,8 @@ const Homepage = () => {
                       // value={email}
                       // onChange={setEmail((e) => e.target.value)}
                       placeholder="Your Email"
-                      className="email-text bg-transparent text-white border-0 mb-1"
+                      className="email-text bg-transparent text-white border-0 mb-1 is-valid form-control"
+                      required
                     />
 
                     <button

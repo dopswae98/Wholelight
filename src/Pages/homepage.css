@@ -14,7 +14,7 @@
     background-image: 
     linear-gradient(
         to bottom,
-        transparent, rgba(0,0,0,1)
+        rgba(0,0,0,0.5), rgba(0,0,0,1)
     );
     display: block;
     position: absolute;
@@ -140,6 +140,14 @@ Link{
     overflow-y: scroll;
 } */
 
+.like-product{
+    visibility: hidden;
+}
+
+.card-item:hover .like-product{
+    visibility:visible;
+}
+
 .price{
     width: 200px;
     height: 30px;
@@ -235,7 +243,7 @@ Link{
 }
 
 .rfq{
-    padding-top: 40% !important;
+    padding-top: 15% !important;
 }
 
 @media screen and (min-width:397px) and (max-width: 951px) {
